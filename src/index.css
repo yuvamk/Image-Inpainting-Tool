@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-gray-900;
+}
+
+/* Custom styles for range input */
+input[type="range"] {
+  @apply appearance-none bg-gray-700 h-2 rounded-lg;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 bg-blue-500 rounded-full cursor-pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 bg-blue-500 border-none rounded-full cursor-pointer;
+}
+
+/* Canvas container styles */
+.canvas-container {
+  @apply w-full h-full !important;
+}
+
+/* Ensure the fabric canvas takes up the full container size */
+.canvas-container canvas {
+  @apply w-full h-full !important;
+}
+
+/* Color picker styles */
+input[type="color"] {
+  @apply bg-transparent border-none cursor-pointer;
+  -webkit-appearance: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  @apply p-0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  @apply border-none rounded-full;
+}
+
+/* Tooltip styles */
+[title] {
+  @apply relative;
+}
+
+[title]:hover::after {
+  content: attr(title);
+  @apply absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 
+         text-xs text-white bg-gray-900 rounded pointer-events-none
+         whitespace-nowrap opacity-0 transition-opacity duration-200;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
